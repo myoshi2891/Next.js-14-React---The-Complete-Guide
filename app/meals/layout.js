@@ -1,10 +1,5 @@
 function MealsLayout({ children }) {
-	return (
-		<>
-			<p>Meals layout</p>
-			{children}
-		</>
-	);
+	return <>{children}</>;
 }
 
 export default MealsLayout;
