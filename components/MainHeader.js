@@ -1,0 +1,5 @@
+function MainHeader() {
+	return <div></div>;
+}
+
+export default MainHeader;
