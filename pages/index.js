@@ -4,6 +4,7 @@ import path from "path";
 
 function HomePage(props) {
 	const { products } = props;
+
 	return (
 		<ul>
 			{products.map((product) => (
@@ -24,14 +25,14 @@ export async function getStaticProps(context) {
 	if (!data) {
 		return {
 			redirect: {
-				destination: "/no-data",
+				destination: "/",
 			},
 		};
 	}
 
-	if (data.products.length === 0) {
-		return { notFound: true };
-	}
+	// if (data.products.length === 0) {
+	// 	return { notFound: true };
+	// }
 
 	return {
 		props: {
