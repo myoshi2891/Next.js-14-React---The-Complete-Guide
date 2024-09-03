@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSWR, useSWRConfig } from "swr";
+import useSWR from "swr";
 
 import EventList from "../../components/events/event-list";
 import ResultsTitle from "../../components/events/results-title";
@@ -18,7 +18,7 @@ function FilteredEventsPage(props) {
 
 	const fetcher = (url) => fetch(url).then((res) => res.json());
 
-	const { data, error } = useSWRConfig(url, fetcher);
+	const { data, error } = useSWR(url, fetcher);
 
 	useEffect(() => {
 		if (data) {
@@ -34,7 +34,6 @@ function FilteredEventsPage(props) {
 		}
 	}, [data]);
 
-	console.log(loadedEvents);
 	if (!loadedEvents) {
 		return <p className="center">Loading...</p>;
 	}
