@@ -1,5 +1,3 @@
-import { request } from "http";
-
 function handler(req, res) {
 	const eventId = req.query.eventId;
 
@@ -18,13 +16,14 @@ function handler(req, res) {
 		}
 
 		const newComment = {
-			id: new Date().toISOString(),
+			eventId,
 			email,
 			name,
 			text,
 		};
 
 		console.log(newComment);
+
 		res.status(201).json({
 			message: "Added comment.",
 			comment: newComment,
@@ -45,7 +44,7 @@ function handler(req, res) {
 			},
 		];
 
-		request.status(200).json({ comment: dummyList });
+		res.status(200).json({ comments: dummyList });
 	}
 }
 
