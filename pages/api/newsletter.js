@@ -1,4 +1,6 @@
-function handler(req, res) {
+import { MongoClient } from "mongodb";
+
+async function handler(req, res) {
 	if (req.method === "POST") {
 		const userEmail = req.body.email;
 
@@ -7,7 +9,14 @@ function handler(req, res) {
 			return;
 		}
 
-		console.log(userEmail);
+		const client = await MongoClient.connect(
+			process.env.REACT_PUBLIC_MONGO_URL
+		);
+		const db = client.db();
+
+		await db.collection("emails").insertOne({ email: userEmail });
+
+		client.close();
 		res.status(200).json({ message: "Signed up!" });
 	}
 }
