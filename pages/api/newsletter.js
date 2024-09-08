@@ -1,6 +1,5 @@
 import { connectDatabase, insertDocument } from "../../helpers/db-util";
 
-
 async function handler(req, res) {
 	if (req.method === "POST") {
 		const userEmail = req.body.email;
