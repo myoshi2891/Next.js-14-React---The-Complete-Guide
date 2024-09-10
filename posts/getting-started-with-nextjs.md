@@ -1,6 +1,6 @@
 ---
 title: Getting Started with NextJs
-date: '2022-10-15'
+date: '2024-10-15'
 image: getting-started-nextjs.png
 excerpt: NextJS is a the React framework for production
 isFeatured: true
