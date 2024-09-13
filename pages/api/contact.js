@@ -23,6 +23,9 @@ async function handler(req, res) {
 		};
 
 		let client;
+
+		const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.jwvtm.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority&appName=Cluster0`;
+		
 		try {
 			client = await MongoClient.connect(
 				process.env.REACT_PUBLIC_MONGO_URL
