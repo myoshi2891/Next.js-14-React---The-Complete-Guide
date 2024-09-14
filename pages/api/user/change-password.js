@@ -52,7 +52,7 @@ async function handler(req, res) {
 	);
 
 	client.close();
-	result.status(200).json({ message: "Passwords are updated!" });
+	res.status(200).json({ message: "Passwords are updated!" });
 }
 
 export default handler;
